@@ -17,7 +17,7 @@ class PermissionTableController extends Controller
                 ->addColumn('action', function ($row) {
                     return view('layouts.commonButton')->with([
                         'edit' => route('permission-table.edit', ['permission_table' => $row->id]),
-                        'delete' => $row->id
+                        // 'delete' => $row->id
                     ]);
                 })
                 ->rawColumns(['action'])
@@ -66,8 +66,6 @@ class PermissionTableController extends Controller
 
     public function destroy(PermissionTable $permissionTable)
     {
-        
-        dd($permissionTable->users);
         $permissionTable->delete();
 
         return response()->json([

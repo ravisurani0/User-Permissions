@@ -14,7 +14,7 @@ class UserPermetions extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::orderBy('id', 'DESC')->get();
+            $data = User::with('roles')->orderBy('id', 'DESC')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -26,8 +26,8 @@ class UserPermetions extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        $userList = User::all();
-        return view('layouts.userPermetions.index', compact('userList'));
+
+        return view('layouts.userPermetions.index');
     }
 
     public function show($id)

@@ -22,6 +22,13 @@ class userHasPermission extends Model
         "edit",
         "destroy",
     ];
+
+    public function User()
+    {
+        return $this->belongsToMany(userHasPermission::class);
+    }
+    
+
     public function PermissionTable()
     {
         return  $this->belongsTo(PermissionTable::class, 'permission_table_id', 'id');

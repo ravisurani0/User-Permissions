@@ -17,7 +17,7 @@ class RoleController extends Controller
                 ->addColumn('action', function ($row) {
                     return view('layouts.commonButton')->with([
                         'edit' => route('roles.edit', ['role' => $row->id]),
-                        'delete' => $row->id
+                        // 'delete' => $row->id
                     ]);
                 })
                 ->rawColumns(['action'])

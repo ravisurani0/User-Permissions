@@ -62,10 +62,8 @@
                     data: 'roles',
                     name: 'roles',
                     "render": function(data, type, row, meta) {
-                        console.log(row)
-                        return row.roles[0].name;
+                        return row.roles[0] ?row.roles[0]?.name:'';
                     }
-
                 },
                 {
                     data: 'created_at',
