@@ -19,7 +19,7 @@ class UsersController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     return view('layouts.commonButton')->with([
-                        'edit' => route('stores.edit', ['store' => $row->id]),
+                        'edit' => route('user.edit', ['user' => $row->id]),
                         'delete' => $row->id
                     ]);
                 })
@@ -89,7 +89,7 @@ class UsersController extends Controller
             ['role_id' => $validated['role']]
         );
         $msg = "User Updated successful! ";
-        return redirect('/stores')->with('msg', $msg);
+        return redirect('/user')->with('msg', $msg);
     }
 
     public function destroy(User $user)

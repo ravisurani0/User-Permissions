@@ -117,7 +117,7 @@
                                     <label class="form-control-label" for="email">Role<span class="small text-danger">*</span></label>
                                     <select class="form-control" aria-label="Default select example" id="role" name="role">
                                         @foreach($roles as $role)
-                                        <option value="{{$role->id}}" {{$user->roles[0]->id == $role->id ? 'selected' :''}}>{{$role->name}}</option>
+                                        <option value="{{$role->id}}" {{ count($user->roles) && $user->roles[0]->id == $role->id ? 'selected' :''}}>{{$role->name}}</option>
                                         @endforeach
 
                                     </select>
